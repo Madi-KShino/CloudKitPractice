@@ -12,6 +12,11 @@
 		53FB38DB23036D4300B4532D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53FB38DA23036D4300B4532D /* Assets.xcassets */; };
 		53FB38DE23036D4300B4532D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FB38DC23036D4300B4532D /* LaunchScreen.storyboard */; };
 		53FB38E923036E3600B4532D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53FB38E823036E3600B4532D /* CloudKit.framework */; };
+		53FB38EB2303713E00B4532D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB38EA2303713E00B4532D /* SignUpViewController.swift */; };
+		53FB38F02303726300B4532D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB38EF2303726300B4532D /* User.swift */; };
+		53FB38F32303765D00B4532D /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB38F22303765D00B4532D /* UserController.swift */; };
+		53FB38F6230380F200B4532D /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB38F5230380F200B4532D /* NotificationExtension.swift */; };
+		53FB38F82303834700B4532D /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FB38F72303834700B4532D /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +28,11 @@
 		53FB38DF23036D4300B4532D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53FB38E623036E3300B4532D /* CloudKitUser.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CloudKitUser.entitlements; sourceTree = "<group>"; };
 		53FB38E823036E3600B4532D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		53FB38EA2303713E00B4532D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		53FB38EF2303726300B4532D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		53FB38F22303765D00B4532D /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		53FB38F5230380F200B4532D /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
+		53FB38F72303834700B4532D /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +69,9 @@
 			children = (
 				53FB38E623036E3300B4532D /* CloudKitUser.entitlements */,
 				53FB38D723036D4100B4532D /* Main.storyboard */,
+				53FB38EE2303722700B4532D /* Models */,
+				53FB38F12303764600B4532D /* Model Controllers */,
+				53FB38F423037FED00B4532D /* View Controllers */,
 				53FB38E523036D5200B4532D /* Resources */,
 			);
 			path = CloudKitUser;
@@ -71,6 +84,7 @@
 				53FB38DA23036D4300B4532D /* Assets.xcassets */,
 				53FB38DC23036D4300B4532D /* LaunchScreen.storyboard */,
 				53FB38DF23036D4300B4532D /* Info.plist */,
+				53FB38F5230380F200B4532D /* NotificationExtension.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -81,6 +95,31 @@
 				53FB38E823036E3600B4532D /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		53FB38EE2303722700B4532D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				53FB38EF2303726300B4532D /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		53FB38F12303764600B4532D /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				53FB38F22303765D00B4532D /* UserController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		53FB38F423037FED00B4532D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				53FB38EA2303713E00B4532D /* SignUpViewController.swift */,
+				53FB38F72303834700B4532D /* WelcomeViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +201,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53FB38F6230380F200B4532D /* NotificationExtension.swift in Sources */,
+				53FB38EB2303713E00B4532D /* SignUpViewController.swift in Sources */,
 				53FB38D423036D4100B4532D /* AppDelegate.swift in Sources */,
+				53FB38F82303834700B4532D /* WelcomeViewController.swift in Sources */,
+				53FB38F32303765D00B4532D /* UserController.swift in Sources */,
+				53FB38F02303726300B4532D /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
