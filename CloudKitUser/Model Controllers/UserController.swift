@@ -24,7 +24,7 @@ class UserController {
     }
     
     //Database
-    var database = CKContainer.default().publicCloudDatabase
+    var database = CKContainer.default().privateCloudDatabase
     
     //CRUD Functions
     func createUserWith(email: String, username: String, password: String, completion: @escaping (Bool) -> Void) {
@@ -87,6 +87,5 @@ class UserController {
     
     func deleteUser() {
         
-    }
-    
+    }  
 }

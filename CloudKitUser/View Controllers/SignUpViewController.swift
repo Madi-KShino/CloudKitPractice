@@ -19,6 +19,9 @@ class SignUpViewController: UIViewController {
     //Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTextField.delegate = self
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
         UserController.sharedInstance.fetchCurrentUser { (success) in
             if success {
                 print("User Fetched")
@@ -44,5 +47,12 @@ class SignUpViewController: UIViewController {
     @objc func handleUserPosted() {
         guard UserController.sharedInstance.currentUser != nil else { return }
         self.performSegue(withIdentifier: "toWelcomeVC", sender: self)
+    }
+}
+
+extension SignUpViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
