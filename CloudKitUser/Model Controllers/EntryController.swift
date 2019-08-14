@@ -18,12 +18,12 @@ class EntryController {
     var entries: [Entry] = []
     
     //Database
-    private let publicDatabase = CKContainer.default().privateCloudDatabase
+    private let privateDatabase = CKContainer.default().privateCloudDatabase
     
     //Crud Functions
     func save(entry: Entry, completion: @escaping(Bool) -> Void) {
         let record = CKRecord(entry: entry)
-        publicDatabase.save(record) { (record, error) in
+        privateDatabase.save(record) { (record, error) in
             if let error = error {
                 print("Error in \(#function): \(error.localizedDescription) \n---\n \(error)")
                 completion(false)
@@ -48,7 +48,7 @@ class EntryController {
         guard let appleUserRef = UserController.sharedInstance.currentUser?.appleUserReference else { completion(false); return }
         let predicate = NSPredicate(format: "appleUserReference == %@", appleUserRef)
         let query = CKQuery(recordType: EntryConstants.typeKey, predicate: predicate)
-        publicDatabase.perform(query, inZoneWith: nil) { (records, error) in
+        privateDatabase.perform(query, inZoneWith: nil) { (records, error) in
             if let error = error {
                 print("Error in \(#function): \(error.localizedDescription) \n---\n \(error)")
                 completion(false)
@@ -73,13 +73,13 @@ class EntryController {
         operation.completionBlock = {
             completion(true)
         }
-        publicDatabase.add(operation)
+        privateDatabase.add(operation)
         print("Entry with ID: \(entry.ckRecordID) Sucessfully Updated")
     }
     
     func delete(entry: Entry, completion: @escaping(Bool, String?) -> Void) {
         let recordID = entry.ckRecordID
-        publicDatabase.delete(withRecordID: recordID) { (recordID, error) in
+        privateDatabase.delete(withRecordID: recordID) { (recordID, error) in
             if let error = error {
                 print("Error in \(#function): \(error.localizedDescription) \n---\n \(error)")
                 completion(false, error.localizedDescription)
@@ -113,12 +113,12 @@ class EntryController {
                 completion(shareRecord, CKContainer.default(), nil)
             }
         }
-        publicDatabase.add(operation)
+        privateDatabase.add(operation)
     }
     
     func createZone(completionHandler:@escaping (CKRecordZone?, Error?)->Void) {
         let customZone = CKRecordZone(zoneName: "ShareZone")
-        publicDatabase.save(customZone, completionHandler: ({returnRecord, error in
+        privateDatabase.save(customZone, completionHandler: ({returnRecord, error in
             completionHandler(returnRecord, error)
         }))
     }
